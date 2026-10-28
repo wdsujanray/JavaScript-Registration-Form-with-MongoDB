@@ -1,4 +1,4 @@
-window.DOM_REGISTRATION_API_URL = "";
+window.DOM_REGISTRATION_API_URL = window.DOM_REGISTRATION_API_URL || "";
 
 (() => {
   const configuredUrl = window.DOM_REGISTRATION_API_URL.trim().replace(/\/+$/, "");

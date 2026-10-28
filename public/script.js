@@ -86,7 +86,7 @@ form.addEventListener("submit", async (event) => {
   try {
     // Password goes to the backend over the request body.
     // The backend hashes it before saving it in MongoDB.
-    const response = await fetch("./api/register", {
+    const response = await fetch(window.getDomRegistrationApiUrl("register"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

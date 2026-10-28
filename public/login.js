@@ -28,7 +28,7 @@ form.addEventListener("submit", async (event) => {
   loading.hidden = false;
 
   try {
-    const response = await fetch("./api/login", {
+    const response = await fetch(window.getDomRegistrationApiUrl("login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

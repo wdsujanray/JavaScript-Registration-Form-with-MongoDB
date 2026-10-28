@@ -57,6 +57,19 @@ The GitHub Actions workflow deploys the static frontend from `public/` whenever 
 
 GitHub Pages does not run the Express server or connect to MongoDB. The pages can be displayed there, but registration and login need the backend deployed separately to work.
 
+### Deploy the API to Render
+
+The repository includes a Render Blueprint in `render.yaml` for the Express API:
+
+1. Create a MongoDB Atlas database and database user. In Atlas Network Access, allow connections from your Render service. Use a strong password and keep the connection URI private.
+2. In Render, choose **New → Blueprint**, connect this GitHub repository, and apply the `render.yaml` Blueprint.
+3. Enter the Atlas connection URI for the `MONGODB_URI` environment variable when Render prompts for it. The URI should use the `dom_registration` database.
+4. After the Render service is deployed, copy its public URL, such as `https://your-service.onrender.com`.
+5. Edit `public/api-config.js` and set `window.DOM_REGISTRATION_API_URL` to that Render URL (without a trailing slash). Commit and push the change. GitHub Actions will redeploy the Pages frontend.
+6. Confirm the API responds at `https://your-service.onrender.com/api/health` with `{"status":"ok"}`.
+
+`FRONTEND_ORIGIN` is configured by the Blueprint for the GitHub Pages origin. Local development automatically uses the local Express origin. Never put the MongoDB URI in frontend code or commit it to GitHub.
+
 ## Application flow
 
 - `/` displays the registration page.

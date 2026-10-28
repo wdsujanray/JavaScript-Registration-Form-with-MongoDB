@@ -28,7 +28,7 @@ form.addEventListener("submit", async (event) => {
   loading.hidden = false;
 
   try {
-    const response = await fetch("/api/login", {
+    const response = await fetch("./api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -44,7 +44,7 @@ form.addEventListener("submit", async (event) => {
       JSON.stringify(responseData.user),
     );
     passwordInput.value = "";
-    window.location.replace("/profile.html");
+    window.location.replace("./profile.html");
   } catch (error) {
     statusBox.textContent =
       error.message === "Failed to fetch"

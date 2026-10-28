@@ -2,7 +2,7 @@ const profileKey = "domRegistrationProfile";
 const profileData = sessionStorage.getItem(profileKey);
 
 if (!profileData) {
-  window.location.replace("/login.html");
+  window.location.replace("./login.html");
 } else {
   let user;
 
@@ -11,7 +11,7 @@ if (!profileData) {
   } catch (error) {
     console.error("Unable to read the saved profile:", error);
     sessionStorage.removeItem(profileKey);
-    window.location.replace("/login.html");
+    window.location.replace("./login.html");
   }
 
   if (
@@ -21,7 +21,7 @@ if (!profileData) {
     typeof user.email !== "string"
   ) {
     sessionStorage.removeItem(profileKey);
-    window.location.replace("/login.html");
+    window.location.replace("./login.html");
   } else {
     const name = user.name;
     const email = user.email;
@@ -115,7 +115,7 @@ if (!profileData) {
 
     document.getElementById("logoutButton").addEventListener("click", () => {
       sessionStorage.removeItem(profileKey);
-      window.location.replace("/login.html");
+      window.location.replace("./login.html");
     });
   }
 }

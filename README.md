@@ -49,6 +49,14 @@ For development with automatic server restarts:
 npm run dev
 ```
 
+## GitHub Pages
+
+The GitHub Actions workflow deploys the static frontend from `public/` whenever changes are pushed to `main`. Enable GitHub Pages in the repository settings and select **GitHub Actions** as the build and deployment source. The site should then be available at:
+
+<https://wdsujanray.github.io/JavaScript-Registration-Form-with-MongoDB/>
+
+GitHub Pages does not run the Express server or connect to MongoDB. The pages can be displayed there, but registration and login need the backend deployed separately to work.
+
 ## Application flow
 
 - `/` displays the registration page.

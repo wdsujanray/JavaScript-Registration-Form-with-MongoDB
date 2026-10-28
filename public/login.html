@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOM Studio | Log in</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app login-app">
+      <header class="hero">
+        <span class="pill">DOM STUDIO · MEMBER ACCESS</span>
+        <h1>Welcome <span id="loginHeroName">back.</span></h1>
+        <p>Log in with the email and password you used to register.</p>
+        <a id="registerLink" class="auth-link" href="/">Create a new account</a>
+      </header>
+
+      <section class="grid login-grid">
+        <section class="panel login-panel">
+          <form id="loginForm" class="login-form" novalidate>
+            <h2>Log in to your account</h2>
+            <p class="muted">Your credentials are checked securely.</p>
+
+            <label for="loginEmail">Email address</label>
+            <input
+              id="loginEmail"
+              name="email"
+              type="email"
+              autocomplete="username"
+              maxlength="254"
+              required
+            />
+
+            <label for="loginPassword">Password</label>
+            <div class="password-field">
+              <input
+                id="loginPassword"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                maxlength="72"
+                required
+              />
+              <button
+                class="password-toggle"
+                type="button"
+                aria-label="Show password"
+                aria-pressed="false"
+                aria-controls="loginPassword"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                  />
+                  <circle cx="12" cy="12" r="3" />
+                  <path class="eye-slash" d="M4 20 20 4" />
+                </svg>
+              </button>
+            </div>
+
+            <button class="primary" id="loginButton" type="submit">
+              <span>Log in</span>
+              <span class="login-button-icon" aria-hidden="true">↗</span>
+            </button>
+            <p
+              id="loginStatus"
+              class="status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </section>
+      </section>
+
+      <footer>HTML · CSS · JavaScript · Express · MongoDB</footer>
+    </main>
+    <div id="loginLoading" class="welcome" hidden>
+      <div class="loader"></div>
+      <h2>Checking your account…</h2>
+      <p>Please wait a moment.</p>
+    </div>
+    <script src="password-toggle.js" defer></script>
+    <script src="login.js" defer></script>
+  </body>
+</html>

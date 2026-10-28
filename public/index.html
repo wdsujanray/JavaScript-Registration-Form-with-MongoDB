@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOM Studio | Register</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <span class="pill">LIVE DOM · MONGODB</span>
+        <h1>Create your <span>profile.</span></h1>
+        <p>Register your details to create a profile and QR code.</p>
+        <a class="auth-link" href="/login.html">Already registered? Log in</a>
+      </header>
+
+      <section class="grid register-grid">
+        <form id="registerForm" class="panel register-panel" novalidate>
+          <h2>Registration form</h2>
+          <p class="muted">All fields marked * are required.</p>
+
+          <label for="name">Full name *</label>
+          <input
+            id="name"
+            name="name"
+            autocomplete="name"
+            minlength="2"
+            maxlength="80"
+            required
+          />
+          <small class="error" id="nameError"></small>
+
+          <label for="email">Email address *</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            maxlength="254"
+            required
+          />
+          <small class="error" id="emailError"></small>
+
+          <label for="phone">Contact number *</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            maxlength="20"
+            required
+          />
+          <small class="error" id="phoneError"></small>
+
+          <label for="password">Password *</label>
+          <div class="password-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              maxlength="72"
+              required
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+              aria-controls="password"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                />
+                <circle cx="12" cy="12" r="3" />
+                <path class="eye-slash" d="M4 20 20 4" />
+              </svg>
+            </button>
+          </div>
+          <small class="hint"
+            >8+ characters, uppercase, lowercase and a number.</small
+          >
+          <small class="error" id="passwordError"></small>
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            maxlength="500"
+            placeholder="Write a short message..."
+          ></textarea>
+          <small class="error" id="messageError"></small>
+
+          <button class="primary" id="submitButton" type="submit">
+            Register & generate profile ↗
+          </button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+          <p class="hint">
+            Your password is securely hashed on the server. It is never shown in
+            the profile or QR code.
+          </p>
+        </form>
+
+      </section>
+
+      <footer>HTML · CSS · JavaScript · Express · MongoDB</footer>
+    </main>
+
+    <div id="welcome" class="welcome" hidden>
+      <div class="loader"></div>
+      <h2>Welcome, <span id="welcomeName"></span>!</h2>
+      <p>Saving your profile securely…</p>
+    </div>
+
+    <script src="password-toggle.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
